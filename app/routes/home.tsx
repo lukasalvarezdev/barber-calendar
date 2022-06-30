@@ -1,4 +1,4 @@
-import { Outlet, useLoaderData } from '@remix-run/react';
+import { Link, Outlet, useLoaderData } from '@remix-run/react';
 import { json } from '@remix-run/node';
 import type { LoaderFunction } from '@remix-run/node';
 import { getAllBarbers } from '~/api';
@@ -20,11 +20,11 @@ export default function Index() {
     <div>
       <div className="flex gap-4">
         {barbers.map(b => (
-          <div key={b.id} className="flex-1">
+          <Link key={b.id} className="flex-1" to={`${b.id}`}>
             <h2>{b.name}</h2>
 
             <img src={b.imageUrl} alt={`${b.name}'s`} className="max-w-max max-h-max" />
-          </div>
+          </Link>
         ))}
       </div>
 
