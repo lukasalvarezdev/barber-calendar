@@ -1,4 +1,4 @@
-import { useLoaderData } from '@remix-run/react';
+import { Outlet, useLoaderData } from '@remix-run/react';
 import { json } from '@remix-run/node';
 import type { LoaderFunction } from '@remix-run/node';
 import { getAllBarbers } from '~/api';
@@ -18,8 +18,6 @@ export default function Index() {
 
   return (
     <div>
-      <h1>Hello remix</h1>
-
       <div className="flex gap-4">
         {barbers.map(b => (
           <div key={b.id} className="flex-1">
@@ -29,6 +27,8 @@ export default function Index() {
           </div>
         ))}
       </div>
+
+      <Outlet />
     </div>
   );
 }
