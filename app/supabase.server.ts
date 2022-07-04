@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Session, SupabaseClientOptions } from '@supabase/supabase-js';
+import invariant from 'tiny-invariant';
 
 declare global {
   namespace NodeJS {
@@ -11,13 +12,10 @@ declare global {
   }
 }
 
-if (!process.env.SUPABASE_URL) {
-  throw new Error('SUPABASE_URL is required');
-}
-
-if (!process.env.SUPABASE_SERVICE_KEY) {
-  throw new Error('SUPABASE_SERVICE_KEY is required');
-}
+invariant(
+  process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_KEY,
+  'SUPABASE_URL and SUPABASE_SERVICE_KEY must be set',
+);
 
 /**
  * See more: https://supabase.com/docs/reference/javascript/initializing#with-additional-parameters
@@ -35,4 +33,9 @@ const supabaseClient = createClient(
   options,
 );
 
-export { Session, supabaseClient };
+const schemaTables = {
+  barber: 'barber',
+  appointment: 'appointment',
+} as const;
+
+export { Session, supabaseClient, schemaTables };
