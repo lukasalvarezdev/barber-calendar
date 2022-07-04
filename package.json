@@ -24,7 +24,11 @@
     "/public/build"
   ],
   "dependencies": {
+    "@iconscout/react-unicons": "^1.1.6",
+    "@internationalized/date": "^3.0.0",
     "@prisma/client": "^4.0.0",
+    "@react-aria/calendar": "^3.0.0",
+    "@react-stately/calendar": "^3.0.0",
     "@remix-run/node": "^1.6.3",
     "@remix-run/react": "^1.6.3",
     "@remix-run/serve": "^1.6.3",
