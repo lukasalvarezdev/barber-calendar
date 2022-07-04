@@ -1,5 +1,4 @@
 {
-  "exclude": ["./cypress", "./cypress.config.ts"],
   "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2019"],
@@ -14,6 +13,8 @@
     "strict": true,
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
+    "noUncheckedIndexedAccess": true,
+    "importsNotUsedAsValues": "error",
     "baseUrl": ".",
     "paths": {
       "~/*": ["./app/*"]
