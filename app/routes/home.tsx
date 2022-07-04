@@ -23,7 +23,7 @@ export default function Index() {
           <Link key={b.id} className="flex-1" to={`${b.id}`}>
             <h2>{b.name}</h2>
 
-            <img src={b.imageUrl} alt={`${b.name}'s`} className="max-w-max max-h-max" />
+            <img src={b.imageUrl} alt={`${b.name}'s`} className="w-1/2 max-h-max rounded rounded-lg h-36" />
           </Link>
         ))}
       </div>
