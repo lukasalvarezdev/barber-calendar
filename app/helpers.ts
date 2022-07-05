@@ -33,4 +33,11 @@ function useOnClickOutside(ref: React.RefObject<HTMLElement>, handler: Handler) 
   }, [ref, handler]);
 }
 
-export { useOnClickOutside, formatDate };
+function transformSingleDigit(digit: number): string {
+  const digitLngth = digit.toString().length;
+
+  if (digitLngth === 1) return `0${digit}`;
+  return digit.toString();
+}
+
+export { useOnClickOutside, formatDate, transformSingleDigit };
